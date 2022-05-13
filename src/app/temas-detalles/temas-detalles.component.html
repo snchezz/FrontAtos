@@ -1,0 +1,92 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="temasActual.id">
+        <h4>Temas</h4>
+        <div>
+            <label><strong>Titulo:</strong></label> {{ temasActual.titulo }}
+        </div>
+        <div>
+            <label><strong>Descripcion:</strong></label>
+            {{ temasActual.descripcion }}
+        </div>
+        <div>
+            <label><strong>Fecha Inicio:</strong></label>
+            {{ temasActual.fechaInicio }}
+        </div>
+        <div>
+            <label><strong>Fecha Fin:</strong></label>
+            {{ temasActual.fechaFin }}
+        </div>
+        <div>
+            <label><strong>Iniciativa:</strong></label>
+            {{ temasActual.iniciativa }}
+        </div>
+        <a class="badge badge-warning" routerLink="/temas/{{ temasActual.id }}">
+            Editar
+        </a>
+    </div>
+    <div *ngIf="!temasActual">
+        <br />
+        <p>Por favor seleccione un tema...</p>
+    </div>
+</div>
+<ng-template #editable>
+    <div *ngIf="temasActual.id" class="edit-form">
+        <h4>Temas</h4>
+        <form #temasForm="ngForm">
+            <div class="form-group">
+                <label for="titulo">Titulo</label>
+                <input type="text" class="form-control" id="titulo" [(ngModel)]="temasActual.titulo" name="titulo"
+                    required #titulo="ngModel" />
+                <div *ngIf="titulo.invalid && titulo.dirty" class="alert alert-danger">
+                    <div *ngIf="titulo.errors?.['required'] ">Campo requerido </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripcion</label>
+                <input type="text" class="form-control" id="descripcion" [(ngModel)]="temasActual.descripcion"
+                    name="descripcion" required #descripcion="ngModel" />
+                <div *ngIf="descripcion.invalid && descripcion.dirty" class="alert alert-danger">
+                    <div *ngIf="descripcion.errors?.['required'] ">Campo requerido </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fechaInicio">fecha Inicio</label>
+                <input type="date" class="form-control" id="fechaInicio" [(ngModel)]="temasActual.fechaInicio"
+                    name="fechaInicio" required #fechaInicio="ngModel" />
+                <div *ngIf="fechaInicio.invalid && fechaInicio.dirty" class="alert alert-danger">
+                    <div *ngIf="fechaInicio.errors?.['required'] ">Campo requerido </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fechaFin">Fecha Fin</label>
+                <input type="date" class="form-control" id="fechaFin" [(ngModel)]="temasActual.fechaFin" name="fechaFin"
+                    required #fechaFin="ngModel" />
+                <div *ngIf="fechaFin.invalid && fechaFin.dirty" class="alert alert-danger">
+                    <div *ngIf="fechaFin.errors?.['required'] ">Campo requerido </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="iniciativa">Iniciativa</label>
+                <select name="select" class="form-control" id="iniciativa" required [(ngModel)]="temasActual.iniciativa"
+                    name="iniciativa">
+                    <option value="value1">Value 1</option>
+                    <option value="value2" selected>Value 2</option>
+                    <option value="value3">Value 3</option>
+                </select>
+            </div>
+
+
+        </form>
+
+        <button class="badge badge-danger mr-2" (click)="eliminarTemas()">Eliminar</button>
+        <button type="submit" class="badge badge-success mb-2" (click)="actualizarTemas()"
+            [disabled]="!temasForm.form.valid">Actualizar</button>
+        <p>{{ message }}</p>
+    </div>
+
+    <div *ngIf="!temasActual.id">
+        <br />
+        <p>No se puede acceder a este tema...</p>
+    </div>
+</ng-template>

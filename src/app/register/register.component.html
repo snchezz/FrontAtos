@@ -1,0 +1,378 @@
+<div class="row" id="cetner">
+    <div class="card card-container">
+        <img id="img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="responsive-img center" />
+        <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="username" class="form-control" name="username" [(ngModel)]="form.username" required
+                    minlength="3" maxlength="20" #username="ngModel" />
+                <div class="alert-danger" *ngIf="username.errors && f.submitted">
+                    <div *ngIf="username.errors ['required']">Username es obligatorio</div>
+                    <div *ngIf="username.errors ['minlength']">
+                        Username debe tener al menos 3 caracteres
+                    </div>
+                    <div *ngIf="username.errors ['maxlength']">
+                        Username no puede tener más de 20 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="dasda" class="form-control" name="email" [(ngModel)]="form.email" required email
+                    #email="ngModel" />
+                <div class="alert-danger" *ngIf="email.errors && f.submitted">
+                    <div *ngIf="email.errors ['required']">Email es obligatorio</div>
+                    <div *ngIf="email.errors ['email']">
+                        Email debe ser una dirección de email válida
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input type="apellidos" class="form-control" name="Apellido" [(ngModel)]="form.apellidos" required
+                    minlength="3" maxlength="20" #apellidos="ngModel" />
+                <div class="alert-danger" *ngIf="apellidos.errors && f.submitted">
+                    <div *ngIf="apellidos.errors ['required']">Apellido es obligatorio</div>
+                    <div *ngIf="apellidos.errors ['minlength']">
+                        Apellido debe tener al menos 3 caracteres
+                    </div>
+                    <div *ngIf="apellidos.errors ['maxlength']">
+                        Apellido no puede tener más de 20 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="location" class="form-control" name="Location" [(ngModel)]="form.location" required
+                    location #location="ngModel" />
+                <div class="alert-danger" *ngIf="location.errors && f.submitted">
+                    <div *ngIf="location.errors ['required']">Location es obligatorio</div>
+                    <div *ngIf="location.errors ['Location']">
+                        Location debe ser una dirección de email válida
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="teacher">Profesor</label>
+                <input type="teacher" class="form-control" name="teacher" [(ngModel)]="form.teacher" required
+                    minlength="3" maxlength="20" #teacher="ngModel" />
+                <div class="alert-danger" *ngIf="teacher.errors && f.submitted">
+                    <div *ngIf="teacher.errors ['required']">Teacher es obligatorio</div>
+                    <div *ngIf="teacher.errors ['minlength']">
+                        el profesor debe tener al menos 3 caracteres
+                    </div>
+                    <div *ngIf="teacher.errors ['maxlength']">
+                        el profesor no puede tener más de 20 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="nameGroupTeams">Nombre de grupo de Teams</label>
+                <input type="nameGroupTeams" class="form-control" name="nameGroupTeams"
+                    [(ngModel)]="form.nameGroupTeams" required nameGroupTeams #nameGroupTeams="ngModel" />
+                <div class="alert-danger" *ngIf="nameGroupTeams.errors && f.submitted">
+                    <div *ngIf="nameGroupTeams.errors ['required']">rellenar es obligatorio</div>
+                    <div *ngIf="nameGroupTeams.errors ['minlength']">
+                        el nombre debe ser correcto
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="groupProyect">Grupo de Proyecto</label>
+                <input type="groupProyect" class="form-control" name="groupProyect" [(ngModel)]="form.groupProyect"
+                    required minlength="3" maxlength="20" #groupProyect="ngModel" />
+                <div class="alert-danger" *ngIf="groupProyect.errors && f.submitted">
+                    <div *ngIf="groupProyect.errors ['required']">el grupo es obligatorio</div>
+                    <div *ngIf="groupProyect.errors ['minlength']">
+                        el grupo debe tener al menos 3 caracteres
+                    </div>
+                    <div *ngIf="groupProyect.errors ['maxlength']">
+                        el grupo
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="center">Centro</label>
+                <input type="center" class="form-control" name="center" [(ngModel)]="form.center" required center
+                    #center="ngModel" />
+                <div class="alert-danger" *ngIf="center.errors && f.submitted">
+                    <div *ngIf="center.errors ['required']">Centro es obligatorio</div>
+                    <div *ngIf="center.errors ['minlength']">
+                        El centro debe tener al menos 3 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="dni">DNI</label>
+                <input type="dni" class="form-control" name="dni" [(ngModel)]="form.dni" required minlength="3"
+                    maxlength="20" #dni="ngModel" />
+                <div class="alert-danger" *ngIf="dni.errors && f.submitted">
+                    <div *ngIf="dni.errors ['required']">DNI es obligatorio</div>
+                    <div *ngIf="dni.errors ['minlength']">
+                        DNI debe tener al menos 3 caracteres
+                    </div>
+                    <div *ngIf="dni.errors ['maxlength']">
+                        DNI no puede tener más de 20 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="fechaNacimiento">Fecha de nacimiento</label>
+                <input type="date" class="form-control" name="fechaNacimiento" [(ngModel)]="form.fechaNacimiento"
+                    minlength="3" required fechaNacimiento #fechaNacimiento="ngModel" />
+                <div class="alert-danger" *ngIf="fechaNacimiento.errors && f.submitted">
+                    <div *ngIf="fechaNacimiento.errors ['required']">La fecha es obligatorio</div>
+                    <div *ngIf="fechaNacimiento.errors ['minlength']">
+                        La fecha debe estar rellena
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="fechaFCT">Fecha de fct</label>
+                <input type="date" class="form-control" name="fechaFCT" [(ngModel)]="form.fechaFCT" required
+                    minlength="3" maxlength="20" #fechaFCT="ngModel" />
+                <div class="alert-danger" *ngIf="fechaFCT.errors && f.submitted">
+                    <div *ngIf="fechaFCT.errors ['required']">La fecha de FCT es obligatoria</div>
+                    <div *ngIf="fechaFCT.errors ['minlength']">
+                        La fecha de FCT debe tener al menos 3 caracteres
+                    </div>
+                    <div *ngIf="fechaFCT.errors ['maxlength']">
+                        La fecha de FCT no puede tener más de 20 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="finFCT">Fin de FCT</label>
+                <input type="date" class="form-control" name="email" [(ngModel)]="form.finFCT" minlength="3" required
+                    finFCT #finFCT="ngModel" />
+                <div class="alert-danger" *ngIf="finFCT.errors && f.submitted">
+                    <div *ngIf="finFCT.errors ['required']">Fin de fct es obligatorio</div>
+                    <div *ngIf="finFCT.errors ['minlength']">
+                        Fin de fct debe tener 3 caracteres como minimo.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="tipo">Tipo</label>
+                <input type="tipo" class="form-control" name="tipo" [(ngModel)]="form.tipo" required minlength="3"
+                    maxlength="20" #tipo="ngModel" />
+                <div class="alert-danger" *ngIf="tipo.errors && f.submitted">
+                    <div *ngIf="tipo.errors ['required']">tipo es obligatorio</div>
+                    <div *ngIf="tipo.errors ['minlength']">
+                        tipo debe tener al menos 3 caracteres
+                    </div>
+                    <div *ngIf="tipo.errors ['maxlength']">
+                        tipo no puede tener más de 20 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="po">PO</label>
+                <input type="po" class="form-control" name="po" [(ngModel)]="form.po" required po #po="ngModel" />
+                <div class="alert-danger" *ngIf="po.errors && f.submitted">
+                    <div *ngIf="po.errors ['required']">PO es obligatorio</div>
+                    <div *ngIf="po.errors ['minlength']">
+                        PO debe tener al menos 3 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="ss">Numero de Seguridad Social</label>
+                <input type="ss" class="form-control" name="ss" [(ngModel)]="form.ss" required minlength="3"
+                    maxlength="20" #ss="ngModel" />
+                <div class="alert-danger" *ngIf="ss.errors && f.submitted">
+                    <div *ngIf="ss.errors ['required']">SS es obligatorio</div>
+                    <div *ngIf="ss.errors ['minlength']">
+                        SS debe tener al menos 3 caracteres
+                    </div>
+                    <div *ngIf="ss.errors ['maxlength']">
+                        SS no puede tener más de 20 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="rr">RR</label>
+                <input type="rr" class="form-control" name="rr" [(ngModel)]="form.rr" required rr #rr="ngModel" />
+                <div class="alert-danger" *ngIf="rr.errors && f.submitted">
+                    <div *ngIf="rr.errors ['required']">RR es obligatorio</div>
+                    <div *ngIf="rr.errors ['minlength']">
+                        RR debe tener al menos 3 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="becas">Becas</label>
+                <input type="becas" class="form-control" name="becas" [(ngModel)]="form.becas" required minlength="3"
+                    maxlength="20" #becas="ngModel" />
+                <div class="alert-danger" *ngIf="becas.errors && f.submitted">
+                    <div *ngIf="becas.errors ['required']">becas es obligatorio</div>
+                    <div *ngIf="becas.errors ['minlength']">
+                        becas debe tener al menos 3 caracteres
+                    </div>
+                    <div *ngIf="becas.errors ['maxlength']">
+                        becas no puede tener más de 20 caracteres
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="ceco">Ceco</label>
+                <input type="ceco" class="form-control" name="ceco" [(ngModel)]="form.ceco" minlength="3" required ceco
+                    #ceco="ngModel" />
+                <div class="alert-danger" *ngIf="ceco.errors && f.submitted">
+                    <div *ngIf="ceco.errors ['required']">ceco es obligatorio</div>
+                    <div *ngIf="ceco.errors ['minlength']">
+                        Username debe tener al menos 3 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="orgUnit">Organizacion de Unit</label>
+                <input type="orgUnit" class="form-control" name="orgUnit" [(ngModel)]="form.orgUnit" required
+                    minlength="3" maxlength="20" #orgUnit="ngModel" />
+                <div class="alert-danger" *ngIf="orgUnit.errors && f.submitted">
+                    <div *ngIf="orgUnit.errors ['required']">La organizacion es obligatorio</div>
+                    <div *ngIf="orgUnit.errors ['minlength']">
+                        La organizacion debe tener al menos 3 caracteres
+                    </div>
+                    <div *ngIf="orgUnit.errors ['maxlength']">
+                        La organizacion no puede tener más de 20 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="sociedad">Sociedad</label>
+                <input type="sociedad" class="form-control" name="sociedad" [(ngModel)]="form.sociedad" required
+                    sociedad #sociedad="ngModel" />
+                <div class="alert-danger" *ngIf="sociedad.errors && f.submitted">
+                    <div *ngIf="sociedad.errors ['required']">sociedad es obligatorio</div>
+                    <div *ngIf="sociedad.errors ['minlength']">
+                        La sociedad debe tener al menos 3 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Telefono</label>
+                <input type="phone" class="form-control" name="phone" [(ngModel)]="form.phone" required minlength="3"
+                    maxlength="20" #phone="ngModel" />
+                <div class="alert-danger" *ngIf="phone.errors && f.submitted">
+                    <div *ngIf="phone.errors ['required']">Telefono es obligatorio</div>
+                    <div *ngIf="phone.errors ['minlength']">
+                        Telefono debe tener al menos 3 caracteres
+                    </div>
+                    <div *ngIf="phone.errors ['maxlength']">
+                        Telefono no puede tener más de 20 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="emailAtos">Email de ATOS</label>
+                <input type="emailAtos" class="form-control" name="emailAtos" [(ngModel)]="form.emailAtos" required
+                    emailAtos #emailAtos="ngModel" />
+                <div class="alert-danger" *ngIf="emailAtos.errors && f.submitted">
+                    <div *ngIf="emailAtos.errors ['required']">Email es obligatorio</div>
+                    <div *ngIf="emailAtos.errors ['email']">
+                        Email debe ser una dirección de email válida
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="das">DAS</label>
+                <input type="das" class="form-control" name="das" [(ngModel)]="form.das" required minlength="3"
+                    maxlength="20" #das="ngModel" />
+                <div class="alert-danger" *ngIf="das.errors && f.submitted">
+                    <div *ngIf="das.errors ['required']">DAS es obligatorio</div>
+                    <div *ngIf="das.errors ['minlength']">
+                        DAS debe tener al menos 3 caracteres
+                    </div>
+                    <div *ngIf="das.errors ['maxlength']">
+                        DAS no puede tener más de 20 caracteres
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="convenio">Convenio</label>
+                <input type="convenio" class="form-control" name="convenio" [(ngModel)]="form.convenio" required
+                    convenio #convenio="ngModel" />
+                <div class="alert-danger" *ngIf="convenio.errors && f.submitted">
+                    <div *ngIf="convenio.errors ['required']">convenio es obligatorio</div>
+                    <div *ngIf="convenio.errors ['minlength']">
+                        convenio debe tener al menos 3 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="contacto">Contacto</label>
+                <input type="contacto" class="form-control" name="contacto" [(ngModel)]="form.contacto" required
+                    minlength="3" maxlength="20" #contacto="ngModel" />
+                <div class="alert-danger" *ngIf="contacto.errors && f.submitted">
+                    <div *ngIf="contacto.errors ['required']">contacto es obligatorio</div>
+                    <div *ngIf="contacto.errors ['minlength']">
+                        contacto debe tener al menos 3 caracteres
+                    </div>
+                    <div *ngIf="contacto.errors ['maxlength']">
+                        contacto no puede tener más de 20 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="positionId">Posicion de ID</label>
+                <input type="positionId" class="form-control" name="positionId" [(ngModel)]="form.positionId"
+                    minlength="3" required positionId #positionId="ngModel" />
+                <div class="alert-danger" *ngIf="positionId.errors && f.submitted">
+                    <div *ngIf="positionId.errors ['required']">Posicion de ID es obligatorio</div>
+                    <div *ngIf="positionId.errors ['minlength']">
+                        Posicion de ID debe tener al menos 3 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="dfdd" class="form-control" name="password" [(ngModel)]="form.password" required
+                    minlength="6" #password="ngModel" />
+                <div class="alert-danger" *ngIf="password.errors && f.submitted">
+                    <div *ngIf="password.errors ['required']">Password obligatoria</div>
+                    <div *ngIf="password.errors ['minlength']">
+                        Password debe tener al menos 6 caracteres
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary btn-block">Sign Up</button>
+            </div>
+            <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                Signup failed!<br />{{ errorMessage }}
+            </div>
+        </form>
+        <div class="alert alert-success" *ngIf="isSuccessful">
+            Se ha registrado correctamente!
+        </div>
+    </div>
+</div>

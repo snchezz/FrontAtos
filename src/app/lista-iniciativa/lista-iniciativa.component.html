@@ -1,0 +1,86 @@
+<div class="card">
+    <div class="row">
+        <div class="col cart">
+  
+            <div class="title">
+                <div class="row">
+                    <div class="col"><h4><b>Lista de Iniciativas</b></h4></div>
+                    <div class="col align-self-center text-right"><a class="btn" routerLink="/listaIniciativas/form">Añadir iniciativa</a></div>
+                </div>
+  
+                <div class="row">
+                  <div class="col"><h4>Filtrar búsqueda</h4></div>   
+                </div>
+  
+                <div class="row">
+                    <div class="col">
+                         <button class="col" (click)='getIniciativasActivas()'>Activas</button> 
+                  <button class="col" (click)='getIniciativasInactivas()'>Inactivas</button>   
+                  <button class="col" (click)='getIniciativasAll()'>Todas</button>  
+                    </div>
+                </div>
+  
+  
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Buscar por título" [(ngModel)]="titulo" />
+                  <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button" (click)="getIniciativasByTitulo()">
+                Buscar
+              </button>
+                  </div>
+              </div>
+  
+               <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Buscar por descripcion" [(ngModel)]="descripcion" />
+                  <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button" (click)="getIniciativasByDescripcion()">
+                Buscar
+              </button>
+                  </div>
+              </div>
+  
+              <div class="input-group mb-3">
+                  <p>Buscar por fecha de inicio</p>
+                     <input type="date" id="start" name="trip-start" class="form-control" [(ngModel)]="inicio">
+                 
+                  <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button" (click)="getIniciativasByInicio()">
+                Buscar
+              </button>
+                  </div>
+              </div>
+  
+              <div class="input-group mb-3">
+                  <p>Buscar por fecha de finalización</p>
+                  <input type="date"  id="start" name="trip-start" class="form-control" [(ngModel)]="fin"/>
+                  <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button" (click)="getIniciativasByFin()">
+                Buscar
+              </button>
+                  </div>
+              </div>
+  
+            </div>   
+            
+  
+            
+            
+            <div class="row border-top border-bottom" *ngFor="let iniciativa of iniciativas">
+                <div class="row main align-items-center">
+                   
+                    <div class="col">
+                        <div class="row text-muted">{{ iniciativa.titulo }}</div>
+                        <div class="row">{{ iniciativa.descripcion }}</div>
+                    </div>
+                    <div class="col">{{ iniciativa.inicio }} - {{ iniciativa.fin }}</div>
+  
+                    <div class="col"><button (click)="setActiva(iniciativa)"  >{{ iniciativa.activa == true? 'Activa' : 'Desactivada'}}</button></div>
+                    <div class="col"><a class="btn"  [routerLink]="['/listaIniciativas/form', iniciativa.idIniciativa]"> Modificar</a></div>
+                    <div class="col"><a class="btn" (click)='deleteOrDeactivate(iniciativa)'>Eliminar</a></div>
+                </div>
+            </div>  
+  
+        </div>
+    </div>
+  </div>
+  

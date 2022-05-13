@@ -1,0 +1,68 @@
+.title{
+    margin-bottom: 4vh;
+    margin-top: 4vh;
+}
+
+.card{
+    margin: auto;
+    max-width: 1300px;
+    width: 90%;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    border: transparent;
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+}
+@media(max-width:767px){
+    .card{
+        margin: 3vh auto;
+    }
+}
+.cart{
+    background-color: #fff;
+    padding: 4vh 5vh;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+}
+@media(max-width:767px){
+    .cart{
+        padding: 4vh;
+        border-bottom-left-radius: unset;
+        border-top-right-radius: 1rem;
+    }
+}
+
+.row{
+    margin: 0;
+}
+
+.title b{
+    font-size: 3rem;
+}
+.main{
+    margin: 0;
+    padding: 2vh 0;
+    width: 100%;
+}
+.col-2, .col{
+    padding: 0 1vh;
+}
+
+.close{
+    margin-left: auto;
+    font-size: 2rem;
+}
+img{
+    width: 3.5rem;
+}
+
+
+a:hover{
+    background-color: rgb(137, 184, 255);
+    border-radius: 3rem;   
+}
+
+button{
+   border-color: transparent;
+}
+

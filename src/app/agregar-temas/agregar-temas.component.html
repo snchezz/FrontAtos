@@ -1,0 +1,64 @@
+<form #temasForm="ngForm">
+    <div>
+        <div class="submit-form">
+            <div *ngIf="!submitted">
+
+                <div class="row">
+                    <div class="form-group">
+                        <input placeholder="Titulo" type="text" class="form-control" id="titulo" [(ngModel)]="temas.titulo" name="titulo" required #titulo="ngModel" class="validate">
+                        <div *ngIf="titulo.invalid && titulo.dirty" class="alert alert-danger">
+                            <div *ngIf="titulo.errors?.['required'] ">Campo requerido </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <input placeholder="Descripcion" class="form-control" id="descripcion" [(ngModel)]="temas.descripcion" name="descripcion" type="text" required #descripcion="ngModel" class="validate">
+                        <div *ngIf="descripcion.invalid && descripcion.dirty" class="alert alert-danger">
+                            <div *ngIf="descripcion.errors?.['required'] ">Campo requerido </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fechaInicio">Fecha Inicio</label>
+                    <input min="2022-05-10" max="2022-07-30" type="date" class="form-control" id="fechaInicio" required #fechaInicio="ngModel" [(ngModel)]="temas.fechaInicio" name="fechaInicio" />
+                    <div *ngIf="fechaInicio.invalid && fechaInicio.dirty" class="alert alert-danger">
+                        <div *ngIf="fechaInicio.errors?.['required'] ">Campo requerido </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="fechaFin">Fecha Fin</label>
+                    <input type="date" class="form-control" id="fechaFin" required #fechaFin="ngModel" [(ngModel)]="temas.fechaFin" name="fechaFin" />
+                    <div *ngIf="fechaFin.invalid && fechaFin.dirty" class="alert alert-danger">
+                        <div *ngIf="fechaFin.errors?.['required'] ">Campo requerido </div>
+                    </div>
+                </div>
+
+                <label for="iniciativa">Iniciativa</label>
+                <select class="browser-default" name="select" class="form-control" id="iniciativa" required [(ngModel)]="temas.iniciativa" name="iniciativa">
+                    <option value="" disabled selected>Selecciona la iniciativa </option>
+                    <option value="value1">Value 1</option>
+                    <option value="value2" selected>Value 2</option>
+                    <option value="value3">Value 3</option>
+                </select>
+
+                <br>
+                <button (click)="guardarTemas()" [disabled]="!temasForm.form.valid" class="btn waves-effect waves-light" type="submit" name="action">Enviar
+                    <i class="material-icons right">send</i>
+                </button>
+
+
+
+            </div>
+
+            <div *ngIf="submitted">
+
+                <h4>Tema enviado correctamente!</h4>
+
+                <button class="btn btn-success" (click)="nuevoTemas()">Agregar</button>
+
+            </div>
+        </div>
+    </div>
+</form>
